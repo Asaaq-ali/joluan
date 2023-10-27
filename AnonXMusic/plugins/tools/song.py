@@ -25,7 +25,7 @@ def remove_if_exists(path):
 @app.on_message(filters.command(["/song", "بحث", "/music"],""))
 async def song_downloader(client, message: Message):
     query = " ".join(message.command[1:])
-    m = await message.reply_text("<b>⇜ جـارِ البحث عـن المقطـع الصـوتـي . . .</b>")
+    m = await message.reply_text("<b> جـارِ البحث عـن المقطع ...</b>")
     ydl_ops = {
         'format': 'bestaudio[ext=m4a]',
         'keepvideo': True,
@@ -48,7 +48,7 @@ async def song_downloader(client, message: Message):
         await m.edit("- لم يتم العثـور على نتائج ؟!\n- حـاول مجـدداً . . .")
         print(str(e))
         return
-    await m.edit("<b>⇜ جـارِ التنزيل ▬▭ . . .</b>")
+    await m.edit("<b> جـارِ التنزيل ▬▭ . . .</b>")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
@@ -60,7 +60,7 @@ async def song_downloader(client, message: Message):
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
             secmul *= 60
-        await m.edit("<b>⇜ جـارِ التحميل ▬▬ . . .</b>")
+        await m.edit("<b><u> جـارِ التحميل ▬▬ . . .</u></b>")
         await message.reply_audio(
             audio=audio_file,
             caption=rep,
