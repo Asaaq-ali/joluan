@@ -116,7 +116,7 @@ async def bottttt(client, message):
     await message.reply_text(bar)
 
 @app.on_message(filters.command(
-  ["لو خيروك"],"")
+  ["لو"],"")
                )
 async def bottttt(client, message):
     selections = ["لو خيروك |  بين الإبحار لمدة أسبوع كامل أو السفر على متن طائرة لـ 3 أيام متواصلة؟ ",
